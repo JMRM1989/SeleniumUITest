@@ -29,6 +29,8 @@ public class DriverFactory {
     public static WebDriver newDevice(String deviceName) {
         Map<String, String> mobileEmulation = Map.of("deviceName", deviceName);
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("--remote-allow-origins=*");
         options.setExperimentalOption("mobileEmulation", mobileEmulation);
 
         return new ChromeDriver(options);
