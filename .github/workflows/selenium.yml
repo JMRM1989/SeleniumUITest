@@ -1,0 +1,36 @@
+name: Selenium Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      - docker:19.03.12-dind
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '19'
+
+    - name: Build and Package with Maven
+      run: |
+        docker run --rm -v $PWD:/app -w /app maven:3.8.4 mvn clean package
+
+    - name: Set up Selenium Docker Image
+      run: |
+        docker pull selenium/standalone-chrome:latest
+
+    - name: Run Selenium Tests
+      run: |
+        docker run --rm -v $PWD:/app --network host selenium/standalone-chrome:latest \
+          mvn -f /app/pom.xml test
