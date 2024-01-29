@@ -19,6 +19,11 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Build and Test
         run: |
           ./gradlew clean test
