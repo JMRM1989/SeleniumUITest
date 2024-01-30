@@ -3,9 +3,9 @@
 
 This repository contains Selenium UI tests designed as an interview project to evaluate the functionality of a dummy purchase web page. The project is divided into two main files:
 
-1. UIFailTests: This file focuses on testing the web page's reaction to incorrect inputs. It specifically targets the first page of the purchase process, considering the ease of making mistakes in the input of the birthday or phone number.
+1.  [UIFailTests:](./src/test/java/UIFailTests.md) This file focuses on testing the web page's reaction to incorrect inputs. It specifically targets the first page of the purchase process, considering the ease of making mistakes in the input of the birthday or phone number.
 
-2. E2ETest: This file aims to simulate an end-to-end journey through the dummy purchase page until it reaches the payment method section. The test attempts to input a credit card number that is expected to fail, and the assertion is set to verify the appearance of a pop-up error message.
+2. [E2ETest:](./src/test/java/E2ETest.md) This file aims to simulate an end-to-end journey through the dummy purchase page until it reaches the payment method section. The test attempts to input a credit card number that is expected to fail, and the assertion is set to verify the appearance of a pop-up error message.
 
 ## Design Patterns
 ### Page Object Pattern
@@ -15,11 +15,15 @@ The Page Object Pattern has been employed in the project to enhance reusability 
 The Factory Method Pattern has been chosen to instantiate WebDriver objects. This pattern provides flexibility by allowing subclasses or specific implementations to supply the actual instance of the WebDriver. This approach accommodates variations in browser types or configurations, contributing to a more adaptable and extensible test suite.
 
 ## Test Files
-1. UIFailTests
+1. UIFailTests:
 This file is dedicated to testing the reaction of the web page to incorrect inputs on the initial purchase page. It specifically targets scenarios where users might input incorrect data for their birthday or phone number.
 
-2. E2ETest
-The E2ETest file orchestrates an end-to-end simulation of the purchase process. It navigates through the pages until reaching the payment method section, where it deliberately attempts to input a credit card number that is expected to fail. The assertion is set to validate the appearance of a pop-up error message.
+2. E2ETest:
+This file orchestrates an end-to-end simulation of the purchase process. It navigates through the pages until reaching the payment method section, where it deliberately attempts to input a credit card number that is expected to fail. The assertion is set to validate the appearance of a pop-up error message.
+
+## DEMO PLAN
+[UIFailTests](UIFailTests_DEMO.md) <br />
+[E2ETest](E2ETest_DEMO.md)
 
 ## Running the Tests
 1. Clone the repository to your local machine.
